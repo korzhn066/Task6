@@ -1,0 +1,19 @@
+﻿@model Task6.ViewModels.CanvasesViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="canvasesContainer">
+    <button type="button"onclick="location.href='@Url.Action("AddCanvas")'"
+        class="btn btn-secondary canvasesButton">
+        Add canvas
+    </button>
+
+    @foreach (var canvas in @Model.Canvases)
+    {
+        <h2>@canvas.Key</h2>
+        <canvas class="canvases"></canvas>
+        <button type="button" onclick="location.href='@Url.Action("Canvas", new {key = canvas.Key})'"
+            class="btn btn-light canvasesButton">Go to canvas</button>
+    }
+</div>
